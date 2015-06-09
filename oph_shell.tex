@@ -93,6 +93,14 @@ The NICEST algorithm is the latest version of a near-infrared color excess metho
 \subsection{IRAS/IRIS 60 and 100 $\mu$m maps}
 The Infrared Astronomical Satellite (IRAS) performed a survey that covered 98 \% of the sky at four wavelenths: 12, 25, 60, and 100 $\mu$m \citep{Neugebauer_1984}. However, the widely used dataset released in 1994 (IRAS Sky Survey Atlas; Wheelock and Infrared Processing and Analysis Center, 1994) suffers from the calibration, zero level, and striping problems. The Improved Reprocessing of the IRAS data \citep[IRIS;]{Miville_Deschenes_2005} provides a significant improvement over these problems. For the purpose of this paper, we use only the 60 and 100 $\mu$m maps of the Ophiuchus region from the IRIS data product and a simple two-band method similar to that used by \citet{Schnee_2008} to derive the column density for the Perseus molecular cloud (see the next section).
 
+\begin{figure*}[ht]
+\centering
+%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
+\includegraphics[scale=0.8]{fig/shell_herschel.png}
+\caption{The image shows \textit{Herschel}-based temperature and opacity at 350 $\mu$m.
+}
+\end{figure*}
+
 \subsection{Herschel Archival Data}
 The Herschel Space Observatory was a satellite operated by the European Space Agency. Its Photodetecting Array Camera and Spectrometer (PACS) and Spectral and Photometric Imaging Receiver (SPIRE) covered wavelengths from 55 to 670 $\mu$m, with six wide spectral bands: 70, 100, and 160 $\mu$m bands of PACS and 250, 350, and 500 $\mu$m bands of SPIRE. A wide range of the Herschel data products is availabel in the Herschel Science Archive. In this paper, we use data that were obtained as part of the Herschel Gould Belt Survey \citep{Andr__2010}. The maps presented in this paper are produced in the Herschel Interactive Processing Environment (HIPE; Version 11.1.0 was used to produce these maps). The zero level problem is resolved by comparing the maps with predictions from the two-component dust model fitted to the Planck HFI maps of the Ophiuchus region (Meisner \& Finkbeiner, submitted; ArXiv:1410.7523). Again, for the purpose of this paper, only maps of the longest four wavelengths (160 $\mu$m of PACS and 250/350/500 $\mu$m of SPIRE) are used here, since emission at wavelengths shorter than 100 $\mu$m shows significant contribution from emission of ``very small grains (VSGs)'' and requires a dust model more complicated than described by Meisner \& Finkbeiner (submitted). The same situation applies to the IRIS 60 and 100 $\mu$m maps, and an estimate of error is given by \citet{Schnee_2006} and \citet{Schnee_2007}.
 
@@ -106,8 +114,6 @@ Figure 1 shows the column densities based on the data described in Section \ref{
 \subsection{Modeling far-infrared emission with a single-component modified blackbody equation}
 For both the IRIS and the Herschel data, we assume that the emission at respective wavelengths (60 and 100 $\mu$m for the IRIS maps, and 160/250/350/500 $\mu$m for the Herschel PACS and SPIRE maps) is dominated by the ``big grain \citep[BG;]{Stepnik_2003}'' dust thermal emssion. We also assume that the dust thermal emission can be described by a single-component modified blackbody equation. This assumption is true only on certain conditions and can be a very coarse approximation at wavelengths shorter than 100 $\mu$m. This is because that the emission at wavelengths shorter than 100 $\mu$m starts to see ``contamination'' from the VSG emission. \citet{Schnee_2007} examined this effect and gave an estimate of error for a similar method to derive the column density and dust temperature. They conluded that the typical error at 60 $\mu$m is around 20\% and smaller for longer wavelengths. Since our goal here is to provide a a relative comparison of the IRIS and the Herschel data, using maps of emission at the longest two of the IRAS wavelengths suffices.
 
-\subsubsection{Temperature and column density from the IRAS/IRIS data}
-As mentioned above, we assume that the emission at IRAS 60 and 100 $\mu$m bands is dominated by the dust thermal emission(, which is true only on certain conditions and can be a very coarse approximation; see \citet{Schnee_2007},) and can be described by a single modified blackbody equation. 
 
 \subsubsection{Temperature and column density from the Herschel data}
 Similarly, we assume that the emission at Herschel PACS 160 $\mu$m and SPIRE 250/350/500 $\mu$m bands is dominated by the dust thermal emission and can be described by a single modified blackbody equation. This is a better assumption for the Herschel data used in this paper, since the VSG emission shows up mostly at wavelengths shorter than 100 $\mu$m.
@@ -135,6 +141,30 @@ We follow the steps taken by \citet{Pineda_2008} to derive
 
 \section{Results}
 \label{sec:results}
+
+\begin{figure}[ht]
+\centering
+%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
+\includegraphics[scale=0.35]{fig/shell_2mass.png}
+\caption{The shell region on top of the NICEST extinction map.
+}
+\end{figure}
+
+\begin{figure*}[ht]
+\centering
+%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
+\includegraphics[scale=0.5]{fig/v_exp}
+\caption{The expanding velocity of the shell, derived from FCRAO $^{12}CO$ data.
+}
+\end{figure*}
+
+\begin{figure}[ht]
+\centering
+%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
+\includegraphics[scale=0.35]{fig/bar_energy.png}
+\caption{Energy comparison between the shell and the clouds.
+}
+\end{figure}
 
 \subsection{Column density ``calibration'' and comparison}
 
