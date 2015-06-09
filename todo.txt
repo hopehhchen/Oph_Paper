@@ -1,0 +1,7 @@
+- Aaron : write up Herschel/Planck optical depth SED fitting procedure
+- Aaron : possibly add scatter plot of NICER/NICEST versus Herschel
+- Hope : redo energy calculation with new Herschel/Planck column density maps
+- Hope : remake shell outline plot
+- Hope :  full footprint plot with Herschel, NICEST, FCRAO, and Halpha
+
+- general cleanup of everything ...
