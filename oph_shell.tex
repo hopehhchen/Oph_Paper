@@ -133,8 +133,33 @@ Although the wavelength range suggested by Meisner \& Finkbeiner where one shoul
 
 However, the hierarchical Bayesian method is highly computation-expensive. Assuming a linear law between the computation time and the number of pixels on the map, we estimate the total computation time of one month to finish the calculation of the column density and temperature using the hierarchical Bayesian method, for a map as large as the Herschel maps of the Ophiuchus cloud in Figure 1.
 
-\subsection{Column density from $^{12}$CO (1-0) and $^{13}$CO (1-0) emission}
-We follow the steps taken by \citet{Pineda_2008} to derive
+\subsubsection{FCRAO Molecular Line Emission}
+We follow the analysis in \citet{Pineda_2008} to derive the equivalent V-band extinction from the $^{12}$CO (1-0) and $^{13}$CO (1-0) line observations. We start by assuming that the $^{12}CO$ is optically thick. We then calculate the excitation temperature using the main beam temperature at the peak of $^{12}CO$:
+
+\begin{equation}
+T_{\text{ex}} = \frac{5.5\,\text{[K]}}{\ln{\left(1+5.5\,\text{[K]}/\left(T_{\text{max}}(^{12}\text{CO})+0.82\,\text{[K]}\right)\right)}}\;\;\;\text{,}
+\end{equation}
+
+where $T_{\text{max}}(^{12}\text{CO})$ is the brightness temperature at the peak. If the excitation temperature of the $^{13}CO$ (1-0) line is the same as the $^{12}CO$ (1-0), we can calculate the optical depth of the $^{13}CO$ (1-0) line:
+
+\begin{equation}
+\tau(^{13}\text{CO}) = - \ln\left[1 - \frac{T_{\text{max}}(^{13}\text{CO})/5.3\,\text{[K]}}{1/\left(e^{5.3\,\text{[K]}/T_{\text{ex}}}-1\right) - 0.16}\right]
+\end{equation}
+
+Similarly, here $T_{\text{max}}(^{12}\text{CO})$ is the main beam brightness temperature at the peak of $^{13}CO$. Using the definition of column density in Rohlfs \& Wilson (1996), we can derive the $^{13}CO$ column density from the two equations above:
+
+\begin{equation}
+N(^{13}\text{CO}) = 3.0\times10^{14}\;\left[\frac{\tau(^{13}\text{CO})}{1-e^{-\tau(^{13}\text{CO})}}\right]\,\frac{W(^{13}\text{CO})}{1-e^{-5.3\,\text{[K]}/T_{\text{ex}}}}\;\text{[cm}^{-2}\text{]}\;\;\;\text{,}
+\end{equation}
+
+where $W(^{13}\text{CO})$ is the integrated intensity along the line of sight in units of [K km/s]. Similarly, we then fit the conversion from both $N(^{13}\text{CO})$ and $W(^{13}\text{CO})$ to the 2MASS extinction.
+
+\begin{equation}
+\begin{aligned}
+A_V &= X_{N(^{13}\text{CO})}\,N(^{13}\text{CO}) \\
+A_V &= X_{W(^{13}\text{CO})}\,W(^{13}\text{CO})
+\end{aligned}
+\end{equation}
 
 \subsection{Column density probability distribution function (PDF)}
 
@@ -142,13 +167,52 @@ We follow the steps taken by \citet{Pineda_2008} to derive
 \section{Results}
 \label{sec:results}
 
-\begin{figure}[ht]
+\subsection{Energy/Momentum Estimation}
+To estimate the contribution of the embedded B-star wind to the turbulence in the Ophiuchus, we adopt the near-infrared extinction for the mass calculation (reasons discussed above in \S4.1) and the molecular line emission for the velocity calculation. The molecular line emission provides the resolution as well as the dispersion along the velocity axis. Thus, we base our calculation on the 2MASS extinction map and the FCRAO $^{12}$CO/$^{13}$CO maps. In this section, no data editing is applied, so the estimates of mass, energy and momentum in the molecular cloud are the upper limits. The data editing does not affect the calculation for the shell significantly.
+
+\begin{figure*}[ht]
 \centering
 %% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
-\includegraphics[scale=0.35]{fig/shell_2mass.png}
+\includegraphics[scale=0.5]{fig/shell_2mass.png}
 \caption{The shell region on top of the NICEST extinction map.
 }
-\end{figure}
+\end{figure*}
+
+\subsubsection{The Cloud}
+The mass within the cloud and the shell is estimated by calculating the mass within projected regions using the column density map. As discussed in \S4.1, we adopt the 2MASS extinction map in our mass calculation. We then calculate the mass column density from the equation (\citet{Arce_2001}):
+
+\begin{equation}
+\Sigma = \mu\,N_{H_2} = \mu\,(9.4\times10^{20})A_V\;\text{g/cm}^2
+\end{equation}
+
+$\mu$ is the average mass per particle and is $\sim$ 2.72 times mass of a hydrogen atom (a.m.u.) for molecular clouds in our Milky Way (ref?). We then obtain the total mass from $M = \Sigma\times \text{Area}$.
+
+In the case of the Ophiuchus, we first calculate the threshold extinction value used to determine the edge of the cloud by calculating the average extinction in places with no obvious far-infrared emission. This threshold value is $\sim$ 0.93 mag. ($\sim$ $8.7 \times 10^{20}$ cm$^{-2}$) on our 2MASS extinction map. We then select the projected region of our cloud to include places where the extinction is larger than 0.93 mag. This threshold value is then subtracted from the extinction within the selected region. The total mass of the Ophiuchus cloud is estimated to be $\sim$ 6000 M$_{\sun}$.
+
+The turbulent velocity of the cloud is estimated using the $^{12}$CO (1-0) line emission. Since the line profile in a molecular cloud at this scale varies from one part of the cloud to another, it is unsuitable to fit the profile and to calculate the velocity dispersion from the fit. A natural way to calculate the velocity dispersion is the second central moment:
+
+\begin{equation}
+\sigma_v = \sqrt{\left(\frac{\int{I(\mathbf{p}, v)\,(v(\mathbf{p}, v)-v_{cent}(\mathbf{p}))^2\,\text{d}(\mathbf{p}, v)}}{\int{I(\mathbf{p}, v)}\,\text{d}(\mathbf{p}, v)}\right)}\;\;\;\text{,}
+\end{equation}
+
+where $I(\mathbf{p}, v)$ and $v(\mathbf{p}, v)$ are the intensity and the velocity at each position $\mathbf{p}$ and velocity $v$, respectively. $v_{cent}(\mathbf{p})$ is the velocity centroid and is calculated from:
+
+\begin{equation}
+v_{cent} = \frac{\int{I(\mathbf{p}, v)\,v(\mathbf{p}, v)\,\text{d}(\mathbf{p}, v)}}{\int{I(\mathbf{p}, v)\,\text{d}(\mathbf{p}, v)}}
+\end{equation}
+
+This is also the first moment, which can be understood as the mean velocity weighted by the intensity at each velocity. In the data cube obtained at the FCRAO, the velocity resolution is 0.21 km/s, smaller than the typical thermal linewidth in molecular clouds ($\sim$ 1 km/s). Thus, we can use the discrete sum to calculate the integrals above without losing any information.
+
+The average of the second central moment in the Ophiuchus cloud is $\sim$ 0.97 km/s. The rms velocity of the turbulence is $\sqrt{3}$ times the velocity dispersion and is thus $\sim$ 1.68 km/s on average over the cloud. To calculate the total momentum and energy in the turbulence, we match the maps of the second moment and the 2MASS/NICER extinction. We then calculate the momentum/energy within each pixel by using the extinction and the second moment at the pixel. For regions outside the coverage of the FCRAO observations, we adopt the mean second moment (0.97 km/s) for the turbulent velocity. Summing up the energy $E_i = 0.5\,M_i\,v_{turb,\,i}^2$ over the entire cloud gives us an estimate of the total momentum and energy in the turbulence. These are 9900 M$_{\sun}$ km/s and $8.82\times10^{46}$ erg, respectively.
+
+
+
+\subsubsection{The Shell}
+The ``bubble'' model (Silk 1985) of an embedded stellar wind predicts that we should observe a hot and relatively diffuse interior and a warm dense shell. In the case of the embedded stellar wind, the ``thickness'' of the shell is often much smaller than the radius of the shell (\citet{Churchwell_2007}; \citet{Arce_2011}), thus making the opacity of the shell smaller along lines of sight through the center of the shell. As a result, the projection of the shell on the sky often looks like a ``ring.'' Due to the variation of the density and the irregularity of the shape of the cloud, the ring is likely incomplete and asymmetric. Estimating mass from the column density within a projected area is thus a lower bound, and serves as a good proxy for the total mass of the shell when the shell is optically thin and symmetric. To estimate the mass of the shell, we first overlay the temperature and density maps to determine an elliptical region with a finite width in the warm and dense part of the map. Notice that we completely exclude the cluster region to avoid confusion between the gas in the shell and within the cluster (Fig. 14, on the 2MASS extinction map). After this projected region of the shell is determined, we use the 2MASS extinction map and convert the extinction magnitude into the mass column density using Eq. 11. Summing up the mass column density within the shell mass region then gives us the shell mass, estimated to be 462 $M_{\sun}$. This is a lower bound, since the cluster region we exclude when choosing the shell mass region likely contains gas within the shell.
+
+The expanding velocity of the shell is determined from the average spectrum of the shell. The symmetry of the shell predicts that the velocity we observe with the molecular line emission within the ``ring'' is symmetric around some system velocity. That is, for each ``particle'' in the shell, the velocity is determined by ($v_{system}$ + $v_{expansion}\,\sin{\left(\cos^{-1}{\left(R/R_0\right)}\right)}$ + $v_{intrinsic}$), where $v_{intrinsic}$ is drawn from a velocity distribution characteristic of the molecule's intrinsic (microscopic) motion. Assuming that the line emission from $^{12}$CO (1-0) traces the gas component of the shell and that the intrinsic velocity distribution can be approximated by a normal distribution, we find $v_{expansion}$ from the residual of fitting the $^{12}$CO line with $N(v_{system}, \sigma)$. Fig. 15 shows the residual as well as the fitted Gaussian line profile, with an asymmetry of the residual due the opacity. $v_{residual}$ is $\sim$ 1.2 km/s, which is $v_{expansion}\,\sin{\left(\cos^{-1}{\left(R/R_0\right)}\right)}$ in the equation above. With the shell mass region selected to have an inner radius $\sim$ 0.98 pc and an outer radius $\sim$ 1.61 pc, we find $v_{expansion}$ to be $\sim$ 1.52 km/s. Notice that $v_{residual}$ is a lower bound since the residual calculated from the $^{12}$CO (1-0) line profile is likely probing the gas component at a larger radius than the inner radius due to the opacity effect.
+
+From these estimates, we obtain the momentum and the kinetic energy of the shell. These are given by $P_{shell} = M_{shell}\,v_{expansion}$ and $E_{shell} = 0.5\,M_{shell}\,v^2_{expansion}$, respectively. For this shell, the momentum is $\sim$ 702 $M_{\sun}\,km/s$, and the energy is $\sim$ $1.06\times10^{46}\,erg$. This is $\sim$ 12 \% of the total turbulent energy of the cloud (compared to $\sim$ 15 \% for the largest shell in Perseus; Fig. 16). Notice again that since the estimates for the mass and the expansion velocity are both the lower limits of possible values, the momentum and energy of the shell presented here are likely smaller than the real values as well.
 
 \begin{figure*}[ht]
 \centering
@@ -158,7 +222,7 @@ We follow the steps taken by \citet{Pineda_2008} to derive
 }
 \end{figure*}
 
-\begin{figure}[ht]
+\begin{figure}[hb]
 \centering
 %% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
 \includegraphics[scale=0.35]{fig/bar_energy.png}
@@ -166,15 +230,52 @@ We follow the steps taken by \citet{Pineda_2008} to derive
 }
 \end{figure}
 
-\subsection{Column density ``calibration'' and comparison}
+\subsection{Impact of the Shell}
+To estimate the impact of the shell on the cloud, we first compare the energy in the shell with the gravitational binding energy. With an effective radius of 5 pc (from the approximated geometrical mean of the cloud extent), we calculate the gravitational binding energy to be $3.97\times10^{47}$ erg, which is 30 times larger than the kinetic energy in the shell. Clearly, the shell does not have the energy to unbind the entire cloud.
 
-\subsection{Shell-like structure centered at the B-type star, $\rho$ Ophiuchi}
+One way to assess whether or not the embedded stellar wind is powerful enough to drive the turbulence is by comparing the energy injection rate ($\dot E_W$) of the shell to the turbulence dissipation rate ($L_{turb}$). The intuitive way to estimate the energy injection rate of the shell is to assume a timescale during which the wind from the embedded B-stars has been accumulating the kinetic energy that we observe within the shell. Following Arce et al. (2011), we assume $\tau_W$ $\sim$ $1\times10^6$ yr. We then have $\dot E_W = E_{shell}/\tau_W \sim 3.4\times10^{33}$ erg/s. Another way to assess this is following Eq. 3.7 in \citet{McKee_1989}:
 
-\subsection{Column density distributions across the Ophiuchus cloud}
+\begin{equation}
+\dot E_W = 0.5\,(\dot M_W\,v_W)\,v_{rms}\;\;\;\text{,}
+\end{equation}
 
-\subsubsection{Column density PDF and turbulence}
+where $v_{rms}$ is the rms velocity of the turbulence in the cloud. $\dot M_W$ and $v_W$ are the mass loss rate and the wind velocity respectively. The mass loss rate of the shell can be estimated from the shell momentum we calculated in \S5.1 by assuming $\tau_W$ and a wind velocity $v_W$.
 
-\subsubsection{Column density PDF and star formation}
+\begin{equation}
+\dot M_W = \frac{P_{shell}}{\tau_W\,v_W}
+\end{equation}
+
+Assuming $\tau_W$ $\sim$ $6\times10^6$ yr and $v_W$ $\sim$ 200 km/s, we get a mass loss rate $\dot M_W$ $\sim$ $2.3\times10^{-5}$ M$_{\sun}$/yr. With the rms velocity of the turbulence $\sim$ 1.68 km/s, we get an energy injection rate of $\sim$ $10^{33}$ erg/s.
+
+The turbulence dissipation rate depends on the dissipation time, which is related to the free-fall time and is often written as $t_{diss} = \eta\,t_{ff}$. In \citet{McKee_1989} and McLow (1999), numerical simulations give $\eta$ in the range of 1 to 10. Assuming $\eta$ = 5 and a volume density of $10^3$ cm$^{-3}$, we have $t_{diss}$ $\sim$ $5\times10^6$ yr. We can then calculate the turbulence dissipation rate:
+
+\begin{equation}
+L_{turb} = \frac{E_{turb}}{t_{diss}}
+\end{equation}
+
+This gives $L_{turb}$ $\sim$ $10^{33}$ erg/s, which is on the same order of magnitude as the energy injection rate of the shell. These estimates indicate that the spherical wind from B-stars ($\rho$ Oph) has the potential for driving the turbulence in the Ophiuchus cloud. This result agrees with \citet{Arce_2011}.
+
+\begin{table*}
+\centering
+\begin{tabular}{lcc}
+\hline
+& \textbf{Shell in Ophiuchus} & \textbf{CPS5 in Perseus} \\   
+\hline
+Radius (IR) [pc] & 1.30 & 2.65 \\ 
+Mass [M$_{\odot}$] & 462 & 53 \\ 
+Expansion Velocity [km/s] & 1.2 & 3 \\ 
+Momentum [M$_{\odot}$ km/s]& 702 & 315 \\ 
+Kinetic Energy [erg]& 1.06$\times10^{46}$ & 1.88$\times10^{46}$ \\ 
+... of total turbulent energy & (12.0\%) & (11.8\%) \\ 
+Energy Injection Rate [erg/s] & 2.46$\times10^{33}$ & 1.49$\times10^{32}$ \\
+\hline
+\end{tabular}
+\caption{Comparison between the shell in Ophiuchus and the shell with the largest radius, CPS5, in Perseus (Arce et al 2011)}
+\end{table*}
+
+\subsection{Comparing to Perseus}
+Table 1 shows the physical properties of the shell discussed here and the largest shell (CPS 5) in the Perseus (\citet{Arce_2011}). We find that while the momenta of the two shells are comparable, the shell in the Ophiuchus cloud is more massive with a lower expansion velocity. This results in its smaller kinetic energy. However, since the total energy in the turbulence is smaller in the Ophiuchus cloud, the ratios of the shell energy to the turbulence energy in the cloud are comparable to each other. In the comparison of the energy injection rate and the turbulence dissipation rate, the shell in the Ophiuchus is powerful enough to drive the turbulence by itself, while in the Perseus, all shells with confidence scores larger than 4 (\citet{Arce_2011}) are required to get an energy injection rate at the same order of magnitude as the turbulence dissipation rate. We think that this hints at the fundamental difference between the two clouds and the shell(s) therein. The Ophiuchus cloud is slightly smaller than the Perseus cloud in terms of its mass and size, and the larger mass/smaller velocity of the shell in the Ophiuchus cloud probably indicates that the shell has been expanding for a longer period of time.
+
 
 \section{Discussion}
 \label{sec:discussion}
@@ -185,15 +286,16 @@ We follow the steps taken by \citet{Pineda_2008} to derive
 
 \subsection{(Non-)Correlation between column density distribution and the dynamics in a molecular cloud}
 
-\section{Summary}
-\label{sec:summary}
+\section{Conclusions}
+In this work, multi-wavelength observations enable us to analyse the derivation of physical properties in the interstellar medium. By doing this, we provide a reliable estimate of the energy and momentum in the cloud and the shell-like structure of an embedded B-star wind. We find that, although this one shell is not powerful enough to sustain the turbulence in the entire cloud, it does inject a substantial amount of energy into the cloud. Here we list our conclusions:
 
-\begin{enumerate}
-\item The three tracers
-\item Problems with Herschel, and (im)possible solution using the Bayesian method
-\item Column density distribution and its characterization
-\item Column density distribution and dynamics in the Ophiuchus cloud
-\end{enumerate}
+\begin{itemize}
+\item Three of the most common ways to trace the column density in molecular clouds include the near-infrared extinction, mid/far-infrared thermal emission and molecular line emission. Comparing the results using data from 2MASS, IRIS, Herschel and FCRAO, we find that the 2MASS/NICER-based extinction measurement serves as the most reliable tracer of column densities in the cloud. However, each of these different tracers, including the 2MASS/NICER-based extinction, suffers from its own limits. This is because none of these tracers directly trace the most dominant component of mass in molecular clouds: the molecular hydrogen. The variation of dust-to-gas ratio and the dust properties affect the effectiveness of both dust tracers, while the excitation criterion (for example, the critical density and temperature) makes it difficult to assess the conversion from the line emission to the gas column density. In dense regions, the molecular line emission can be optically thick or depleted, making it unsuitable for tracing the column density. Following \citet{Goodman_2009}, we propose that when choosing tracers of the column density, one should always consider the physical environment of the target region. 
+\item Two of the complexities of using the mid/far-infrared emission as a density tracer are the variation of physical properties along the line of sight and the noise in the data. The commonly used modified blackbody equation assumes a single temperature, column density and the emissivity spectral index $\beta$ throughout the entire line of sight. This makes it difficult to describe the observed SED with the modified blackbody equation, especially when we free both the temperature and $\beta$ in the fitting. By building a toy line of sight, we find that the temperature and $\beta$ derived by fitting the modified blackbody equation are not representative of a line of sight with a varying temperature and $\beta$. On the other hand, we experiment with the hierarchical Bayesian-fitting method in the hope of decreasing the bias caused by noise in the data. We find that while it decreases the bias we see in previous works, including the anti-correlation between the temperature and $\beta$, the original code used in \citet{Kelly_2012} is not readily applicable to extended sources. To build a hierarchical Bayesian-fitting method that treats the distributions in the parameter space and of the observed fluxes at the same time, we need a more sophisticated model for these distributions than the multivariate Student-T distribution used in \citet{Kelly_2012}.
+\item With a better understanding of various density tracers, we calculate the total turbulent energy in the Ophiuchus cloud and the energy entrained in the embedded B-star wind. By comparing the two, we find that the energy in the shell strucuture caused by the B-star wind amounts to $\sim$ 12 \% of the total turbulent energy in the cloud. The wind's energy injection rate is also comparable to the dissipation rate of the turbulent energy in the entire cloud. Comparing this result to shells in the Perseus cloud (Arce et al. 2011), we find that the shell in the Ophiuchus has energy comparable to the largest few shells in the Perseus and its energy injection rate is comparable to the \emph{sum} of all shells in the Perseus. We conclude that the embedded stellar winds can contribute to the turbulent energy in molecular clouds. In future simulations, embedded winds driven by B or even later types of stars should be included as important sources of turbulence in molecular clouds.
+\end{itemize}
+
+
 
 %\bibliography{bibliography/converted_to_latex.bib%
 %}
