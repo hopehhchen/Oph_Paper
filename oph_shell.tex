@@ -1,9 +1,3 @@
-% The emulateapj.cls file produces output like that of the
-% Astrophysical Journal.  Use instead of aastex.cls.  This usage
-% supercedes older versions that used the aastex package with emulateapj5.sty.
-% YOU SHOULD REMOVE THE TABLE OF
-% CONTENTS PAGE WHEN USING APJ FORMAT.
-%
 \documentclass[11pt,a4paper]{emulateapj}
 \bibliographystyle{apj}
 
@@ -21,7 +15,6 @@
 \begin{document}
 
 \title{COMPLETE View of the Ophiuchus Cloud I: Stellar Wind Driven by B-type Stars}
-%\author{Hope Chen, Alyssa Goodman \& Aaron Meisner}
 \author{Hope Chen \altaffilmark{1}}
 \author{Alyssa Goodman \altaffilmark{1}}
 \author{Aaron Meisner \altaffilmark{1}}
@@ -30,19 +23,10 @@ Cambridge, MA 02138, USA; dfinkbeiner@cfa.harvard.edu}
 \date{\today}
 %\maketitle
 
-
-% Usually omit these for ApJ or MNRAS style files:
-%\tableofcontents
-%
-%\listoffigures
-%
-%\listoftables
-
 \begin{abstract}
 \cite{Arce_2010} identified shells driven by B- or later type stars in Perseus, and found that the energy input from these shell structures is comparable to the total turbulent energy in the Perseus molecular cloud. Using a combination of data from Herschel, Planck, 2MASS and FCRAO molecular line observations, we identify and study a similar shell structure in the Ophiuchus molecular cloud. The shell is centered at a B-type star, $\rho$ Ophiuchi, and is potentially the result of the stellar wind driven by $\rho$ Oph. We find that the energy entrained in the shell contributes to $\sim$15\% of the turbulent energy in the Ophiuchus molecular cloud.
 \end{abstract}
 
-%Section heading
 \section{Introduction} 
 Stars go through many periods of mass loss throughout their lives. Young embedded protostars drive powerful collimated outflows, and as they evolve, the mass loss rate decreases and the outflows become less collimated \citep{Bontemps_1996,Arce_2006}. Wide-angle winds, sometimes coexistent with a more collimated, jet-like component, are observed around evolved pre-main sequence stars (T-Tauri and Herbig Ae/Be stars). It was realized early on in the study of winds that both the outflows driven by protostars and winds from T-Tauri stars have the potential to significantly affect the dynamics and structure of the parent cloud \citep{Norman_1980}, and the impact has been observed and analysed by Arce et al (2007) and \citet{Arce_2010}. However, the original bubble model proposed by \citet{Norman_1980} lost its appeal when T-Tauri stars were more often observed to have an effect on their surroundings through what are now well-known bipolar outflows.
 
@@ -68,7 +52,6 @@ The NICEST algorithm is the latest version of a near-infrared color excess metho
 
 \begin{figure*}[ht]
 \centering
-%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
 \includegraphics[scale=0.8]{fig/shell_herschel.png}
 \caption{The image shows \textit{Herschel}-based temperature and optical depth at 350$\mu$m.
 }
@@ -143,7 +126,6 @@ To estimate the contribution of the embedded B-star wind to the turbulence in th
 
 \begin{figure*}[ht]
 \centering
-%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
 \includegraphics[scale=0.5]{fig/shell_2mass.png}
 \caption{The shell region on top of the NICEST extinction map.
 }
@@ -187,7 +169,6 @@ From these estimates, we obtain the momentum and the kinetic energy of the shell
 
 \begin{figure*}[ht]
 \centering
-%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
 \includegraphics[scale=0.5]{fig/v_exp}
 \caption{The expanding velocity of the shell, derived from FCRAO $^{12}CO$ data.
 }
@@ -195,7 +176,6 @@ From these estimates, we obtain the momentum and the kinetic energy of the shell
 
 \begin{figure}[hb]
 \centering
-%% The 'scale' parameter below allows you to scale the figure so that it fits within the page. In this case the figure was scaled to 20% of its original size. Note: for .png files one has to use pdflatex, not classic latex
 \includegraphics[scale=0.35]{fig/bar_energy.png}
 \caption{Energy comparison between the shell and the clouds.
 }
@@ -265,11 +245,6 @@ In this work, multi-wavelength observations enable us to analyse the derivation 
 \item Two of the complexities of using the mid/far-infrared emission as a density tracer are the variation of physical properties along the line of sight and the noise in the data. The commonly used modified blackbody equation assumes a single temperature, column density and the emissivity spectral index $\beta$ throughout the entire line of sight. This makes it difficult to describe the observed SED with the modified blackbody equation, especially when we free both the temperature and $\beta$ in the fitting. By building a toy line of sight, we find that the temperature and $\beta$ derived by fitting the modified blackbody equation are not representative of a line of sight with a varying temperature and $\beta$. On the other hand, we experiment with the hierarchical Bayesian-fitting method in the hope of decreasing the bias caused by noise in the data. We find that while it decreases the bias we see in previous works, including the anti-correlation between the temperature and $\beta$, the original code used in \citet{Kelly_2012} is not readily applicable to extended sources. To build a hierarchical Bayesian-fitting method that treats the distributions in the parameter space and of the observed fluxes at the same time, we need a more sophisticated model for these distributions than the multivariate Student-T distribution used in \citet{Kelly_2012}.
 \item With a better understanding of various density tracers, we calculate the total turbulent energy in the Ophiuchus cloud and the energy entrained in the embedded B-star wind. By comparing the two, we find that the energy in the shell strucuture caused by the B-star wind amounts to $\sim$ 12 \% of the total turbulent energy in the cloud. The wind's energy injection rate is also comparable to the dissipation rate of the turbulent energy in the entire cloud. Comparing this result to shells in the Perseus cloud (Arce et al. 2011), we find that the shell in the Ophiuchus has energy comparable to the largest few shells in the Perseus and its energy injection rate is comparable to the \emph{sum} of all shells in the Perseus. We conclude that the embedded stellar winds can contribute to the turbulent energy in molecular clouds. In future simulations, embedded winds driven by B or even later types of stars should be included as important sources of turbulence in molecular clouds.
 \end{itemize}
-
-
-
-%\bibliography{bibliography/converted_to_latex.bib%
-%}
 
 \bibliographystyle{apj}
 \bibliography{oph_shell}
