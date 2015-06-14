@@ -51,6 +51,7 @@ The NICEST algorithm is the latest version of a near-infrared color excess metho
 \end{figure*}
 
 \subsection{Herschel Data}
+\label{sec:herschel_data}
 The Herschel Space Observatory was a satellite operated by the European Space Agency. Its Photodetecting Array Camera and Spectrometer (PACS) and Spectral and Photometric Imaging Receiver (SPIRE) covered wavelengths from 55 to 670 $\mu$m, with six wide spectral bands: 70, 100, and 160 $\mu$m bands of PACS and 250, 350, and 500 $\mu$m bands of SPIRE. A wide range of the Herschel data products is available in the Herschel Science Archive. In this paper, we use data that were obtained as part of the Herschel Gould Belt Survey \citep{Andre_2010}. The maps presented in this paper are produced in the Herschel Interactive Processing Environment (HIPE; Version 11.1.0 was used to produce these maps).
 
 \subsection{Molecular Line Emission: $^{12}$CO (1-0) and $^{13}$CO (1-0)}
@@ -60,17 +61,23 @@ Observations of molecular line emission of the $^{12}$CO J=1-0 and $^{13}$CO J=1
 \label{sec:methods}
 Figure 1 shows the column densities based on the data described in Section \ref{sec:data}. For comparison, column densities are converted to the unit of V-band extinction (A$_V$) using a uniform conversion factor of N(H$_2$)/A$_V$ = 6.9 $\times$ 10$^{20}$ cm$^{-2}$ mag$^{-1}$ \citep{Draine_2003,Evans_2009}. (Different factors were suggested for more diffuse regions, for example, N(H$_2$)/A$_V$ = 9.4 $\times$ 10$^{20}$ cm$^{-2}$ mag$^{-1}$ by \citet{Bohlin_1978}.) For the 2MASS/NICEST extinction map, we assume a linear reddening law of A$_K$/A$_V$ = 0.114. Besides the column density, other physical properties including the temperature are derived from these data based on respective assumptions described as follows.
 
-\subsection{Herschel Zero level}
-The zero level problem is resolved by comparing the maps with predictions from the two-component dust model fitted to the Planck HFI maps of the Ophiuchus region (Meisner \& Finkbeiner, submitted; ArXiv:1410.7523). Again, for the purpose of this paper, only maps of the longest four wavelengths (160 $\mu$m of PACS and 250/350/500 $\mu$m of SPIRE) are used here, since emission at wavelengths shorter than 100 $\mu$m shows significant contribution from emission of ``very small grains (VSGs)'' and requires a dust model more complicated than described by Meisner \& Finkbeiner (submitted).
+\subsection{Herschel Zero Level}
+
+Although Herschel PACS/SPIRE imaging offers superb angular resolution, the Herschel mosaics described in $\S$\ref{sec:herschel_data} are not absolutely calibrated, in the sense that there may be a per-band additive offset needed to correct the Herschel zero level. This issue has traditionally been addressed for small $\lesssim$1 square degree regions by adding a scalar offset to the Herschel mosaic under consideration at each wavelength. However, in this study we seek to calibrate Herschel data for a large region of the Ophiuchus cloud dozens of square degrees in size. Over this sizeable footprint, we found that a single per-band scalar offset could not satisfactorily correct the Herschel zero level.
+
+Instead, we chose to allow for a spatially varying zero level offset in each Herschel band. Specifically, we used the \cite{Meisner_2015} Planck-based thermal dust emission model to predict the Herschel emission at 10$'$ FWHM over our entire Ophiuchus footprint. These low-resolution Herschel predictions incorporated color corrections to account for the 
+Herschel bandpasses. To correct the Herschel zero level, we then high-pass filtered each Herschel mosaic at $10$$'$, and replaced the low-order spatial modes ($\geq$10$'$ FWHM) with the corresponding Planck-based predictions. We thereby achieved dust emission maps at 160$\mu$m, 250$\mu$m, 350$\mu$m, 500$\mu$m which retain the high angular resolution of Herschel, but inherit the reliable zero level of Planck.
+
+%The zero level problem is resolved by comparing the maps with predictions from the two-component dust model fitted to the Planck HFI maps of the Ophiuchus region (Meisner \& Finkbeiner, submitted; ArXiv:1410.7523). Again, for the purpose of this paper, only maps of the longest four wavelengths (160 $\mu$m of PACS and 250/350/500 $\mu$m of SPIRE) are used here, since emission at wavelengths shorter than 100 $\mu$m shows significant contribution from emission of ``very small grains (VSGs)'' and requires a dust model more complicated than described by Meisner \& Finkbeiner (submitted).
 
 \subsection{Modeling far-infrared emission with a single-component modified blackbody equation}
 We assume that the Herschel emission at 160/250/350/500 $\mu$m for the Herschel PACS and SPIRE maps is dominated by the ``big grain \citep[BG;][]{Stepnik_2003}'' dust thermal emssion. We also assume that the dust thermal emission can be described by a single-component modified blackbody equation. This assumption is true only on certain conditions and can be a very coarse approximation at wavelengths shorter than 100 $\mu$m. This is because that the emission at wavelengths shorter than 100 $\mu$m starts to see ``contamination'' from the VSG emission. \citet{Schnee_2007} examined this effect and gave an estimate of error for a similar method to derive the column density and dust temperature. They conluded that the typical error at 60 $\mu$m is around 20\% and smaller for longer wavelengths. %Since our goal here is to provide a a relative comparison of the IRIS and the Herschel data, using maps of emission at the longest two of the IRAS wavelengths suffices.
 
 
-\subsubsection{Temperature and column density from the Herschel data}
+%\subsubsection{Temperature and column density from the Herschel data}
 Similarly, we assume that the emission at Herschel PACS 160 $\mu$m and SPIRE 250/350/500 $\mu$m bands is dominated by the dust thermal emission and can be described by a single modified blackbody equation. This is a better assumption for the Herschel data used in this paper, since the VSG emission shows up mostly at wavelengths shorter than 100 $\mu$m.
 
-\subsubsection{Modeling far-infrared emission with a single-component modified blackbody equation}
+%\subsubsection{Modeling far-infrared emission with a single-component modified blackbody equation}
 Using a single-component modified blackbody equation presumes that the material along the line of sight has a single temperature.
 
 Finally, as \citet{Finkbeiner_1999} and Meisner \& Finkbeiner (submitted; ArXiv:1410.7523) suggested, the modeling is improved by using a two-compoenent modified blackbody equation with a ``hot dust component'' and a ``cold dust component.'' The emission is then described by the equation:
