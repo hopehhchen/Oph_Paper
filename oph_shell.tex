@@ -73,7 +73,17 @@ We assume that the Herschel maps from 160$\mu$m to 500$\mu$m, following the zero
 
 Prior to SED fitting, we smooth the Herschel maps at 160$\mu$m, 250$\mu$m and 350$\mu$m to 36.1$'$ FWHM, to match the angular resolution of the SPIRE 500$\mu$m map. To perform the actual SED fits, we consider the SED comprised of four Herschel broadband SED measurements (at 160$\mu$m, 250$\mu$m, 350$\mu$m, and 500$\mu$m) in each pixel independently. We assume a 10\% fractional uncertainty on each Herschel intensity measurement. The model parameters we allow to vary during SED fitting are the dust temperature, which dictates the SED shape, and the SED normalization at 350$\mu$m, which dictates the SED amplitude. For each pixel, we then derive the optimal temperature and 350$\mu$m intensity via simple $\chi^2$ minimization. Using the equation $I_{\nu}$=$\tau_{\nu}$$B_{\nu}(T)$, we can then derive the optical depth at any frequency based on our two fitted parameters. Our results are shown for the shell region of particular interest in Figure \ref{fig:herschel_shell}.
 
-The single-MBB, $\chi^2$ minimization approach employed here is traditional, but not necessarily optimal. In particular, many variants of the fitting procedure could be imagined, even given the same Herschel input maps. In particular, we could allow for a spatially varying $\beta$ and/or leverage more sophisticated inference techniques, such as that of \cite{Kelly_2012}, which properly handles the well-known $\beta$-$T$ anti-correlation. We defer a full comparison of multiple methods by which to derive dust and gas column densities throughout the entire Ophiuchus molecular cloud to a future work (Chen et al., in preparation).
+The single-MBB, $\chi^2$ minimization approach employed here is traditional, but not necessarily optimal. In particular, many variants of the fitting procedure could be imagined, even given the same Herschel input maps. In particular, we could allow for a spatially varying $\beta$ and/or leverage more sophisticated inference techniques, such as that of \cite{Kelly_2012}, which properly handles the well-known $\beta$-$T$ anti-correlation. 
+
+Figure \ref{fig:herschel_nicest} shows a log-log scatter plot of NICEST extinction versus our Herschel-based optical depth. Good agreement can be seen, especially over the
+approximate range of 0.1$<$$A_V$$<$1 in extinction. However, the agreement is not perfect, particularly at high extinction $A_V$$\gtrsim$1. We defer a full, detailed comparison of multiple methods by which to derive dust and gas column densities throughout the entire Ophiuchus molecular cloud to a future work (Chen et al., in preparation).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.475]{fig/scatter_herschel_nicest.png}
+\caption{\label{fig:herschel_nicest} Log-log scatter plot of NICEST extinction ($A_v$) versus our Herschel-based $\tau_{350\mu m}$ over the entire Ophiuchus region, after regridding to the NICEST pixelization. Across a wide range of $A_V$, approximately 0.1$<$$A_V$$<$1, there is a very strong and nearly linear correlation. However, the 
+agreement is not perfect, particularly at high extinction, $A_V$$\gtrsim$1. More specifically, the best-fit log-log slope over the range in $\tau_{350\mu m}$ indicated by the vertical green lines is 1.10, suggesting that the relationship between NICEST $A_V$ and Herschel optical depth is close to, but not exactly linear.}
+\end{figure}
 
 %\citet{Schnee_2007} examined this effect and gave an estimate of error for a similar method to derive the column density and dust temperature. They conluded that the typical error at 60 $\mu$m is around 20\% and smaller for longer wavelengths.
 
