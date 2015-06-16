@@ -46,8 +46,7 @@ The NICEST algorithm is the latest version of a near-infrared color excess metho
 \begin{figure*}[ht]
 \centering
 \includegraphics[scale=0.8]{fig/shell_herschel.png}
-\caption{\label{fig:herschel_shell}Left: \textit{Herschel}-based dust temperature, displaying the hot shell-like structure characterized throughout this study. Right: Corresponding Herschel-based optical depth at 350$\mu$m.
-}
+\caption{\label{fig:herschel_shell}Left: \textit{Herschel}-based dust temperature, displaying the hot shell-like structure characterized throughout this study. Right: A rescaling (following the procedure of $\S$\ref{sec:energy_momentum}) of the corresponding Herschel optical depth, shown in units of extinction. The area between the two dashed red circles represents the region used to calculate the shell properties. The footprint shown is 2.2$^{\circ}$$\times$2.1$^{\circ}$, centered at $(\alpha, \delta)$=(246.40$^{\circ}$,$-23.34^{\circ}$).}
 \end{figure*}
 
 \subsection{Herschel Data}
@@ -127,14 +126,15 @@ A_V &= X_{W(^{13}\text{CO})}\,W(^{13}\text{CO})
 \label{sec:results}
 
 \subsection{Energy/Momentum Estimation}
+\label{sec:energy_momentum}
 To estimate the contribution of the embedded B-star wind to the turbulence in the Ophiuchus, we use the {\it Herschel} far-infrared emission for the mass calculation (see \S4 for detailed discussion) and the molecular line emission for the velocity calculation. To estimate the mass, {\it Herschel} 350$\mu$m opacity is assumed to be linearly correlated with 2MASS near-infrared extinction, in logarithmic space. On the other hand, the resolution of molecular line observation allows us to derive velocity dispersion in the cloud and the expansion motion of the shell. A foreground/background correction equivalent to 0.6 magnitude of V-band extinction is applied to the data (Lombardi et al.\ 2015) throughout this section.
 
-\begin{figure*}[ht]
-\centering
-\includegraphics[scale=0.3]{fig/shell_herschel_circles.png}
-\caption{The region used to calculate the shell properties in red, on top of the {\it Herschel} 350$\mu$m opacity and {\it Herschel}-based temperature.
-}
-\end{figure*}
+%\begin{figure*}[ht]
+%\centering
+%\includegraphics[scale=0.3]{fig/shell_herschel_circles.png}
+%\caption{The region used to calculate the shell properties in red, on top of the {\it Herschel} 350$\mu$m opacity and {\it Herschel}-based temperature.
+%}
+%\end{figure*}
 
 \subsubsection{The Cloud}
 The cloud boundary is defined using the column density contours equivalent to 1 and 5 magnitude of V-band extinction. The A$_V$ = 1 and 5 contours correspond to the thresholds used to define ``cloud component'' and ``dense material'' in Lombardi et al.\ (2010), respectively. For each pixel within the cloud boundary, we estimate the mass column density using the equation (Arce et al.\ 2001):
