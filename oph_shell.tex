@@ -87,6 +87,13 @@ agreement is not perfect, particularly at high extinction, $A_V$$\gtrsim$1. More
 
 %\citet{Schnee_2007} examined this effect and gave an estimate of error for a similar method to derive the column density and dust temperature. They conluded that the typical error at 60 $\mu$m is around 20\% and smaller for longer wavelengths.
 
+\begin{figure*}[ht]
+\centering
+\includegraphics[scale=0.3]{fig/footprint.png}
+\caption{{\it Clockwise, from top left}: Herschel 350$\mu$m opacity, 2MASS/NICEST-based extinction, SHASSA H-alpha emission, and integrated FCRAO $^{12}$CO (1-0) line emission. The red circles show the region we use to calculate the shell properties.
+}
+\end{figure*}
+
 \subsubsection{FCRAO Molecular Line Emission}
 We follow the analysis in \citet{Pineda_2008} to derive the equivalent V-band extinction from the $^{12}$CO (1-0) and $^{13}$CO (1-0) line observations. We start by assuming that the $^{12}CO$ is optically thick. We then calculate the excitation temperature using the main beam temperature at the peak of $^{12}CO$:
 
@@ -124,8 +131,8 @@ To estimate the contribution of the embedded B-star wind to the turbulence in th
 
 \begin{figure*}[ht]
 \centering
-\includegraphics[scale=0.5]{fig/shell_2mass.png}
-\caption{The shell region on top of the NICEST extinction map.
+\includegraphics[scale=0.3]{fig/shell_herschel_circles.png}
+\caption{The region used to calculate the shell properties in red, on top of the {\it Herschel} 350$\mu$m opacity and {\it Herschel}-based temperature.
 }
 \end{figure*}
 
@@ -156,7 +163,23 @@ This is also the first moment, which can be understood as the mean velocity weig
 
 The average of the second central moment in the Ophiuchus cloud is $\sim$ 0.97 km/s. The rms velocity of the turbulence is $\sqrt{3}$ times the velocity dispersion and is thus $\sim$ 1.68 km/s on average over the cloud. To calculate the total momentum and energy in the turbulence, we match the maps of the second moment and the 2MASS/NICER extinction. We then calculate the momentum/energy within each pixel by using the extinction and the second moment at the pixel. For regions outside the coverage of the FCRAO observations, we adopt the mean second moment (0.97 km/s) for the turbulent velocity. Summing up the energy $E_i = 0.5\,M_i\,v_{turb,\,i}^2$ over the entire cloud gives us an estimate of the total momentum and energy in the turbulence. These are 9900 M$_{\sun}$ km/s and $8.82\times10^{46}$ erg, respectively.
 
-
+\begin{table*}[ht]
+\centering
+\begin{tabular}{lcc}
+\hline
+& \textbf{Shell in Ophiuchus} & \textbf{CPS5 in Perseus} \\   
+\hline
+Radius (IR) [pc] & 1.30 & 2.65 \\ 
+Mass [M$_{\odot}$] & 462 & 53 \\ 
+Expansion Velocity [km/s] & 1.2 & 3 \\ 
+Momentum [M$_{\odot}$ km/s]& 702 & 315 \\ 
+Kinetic Energy [erg]& 1.06$\times10^{46}$ & 1.88$\times10^{46}$ \\ 
+... of total turbulent energy & (12.0\%) & (11.8\%) \\ 
+Energy Injection Rate [erg/s] & 2.46$\times10^{33}$ & 1.49$\times10^{32}$ \\
+\hline
+\end{tabular}
+\caption{Comparison between the shell in Ophiuchus and the shell with the largest radius, CPS5, in Perseus (Arce et al 2011)}
+\end{table*}
 
 \subsubsection{The Shell}
 The ``bubble'' model (Silk 1985) of an embedded stellar wind predicts that we should observe a hot and relatively diffuse interior and a warm dense shell. In the case of the embedded stellar wind, the ``thickness'' of the shell is often much smaller than the radius of the shell (\citet{Churchwell_2007}; \citet{Arce_2011}), thus making the opacity of the shell smaller along lines of sight through the center of the shell. As a result, the projection of the shell on the sky often looks like a ``ring.'' Due to the variation of the density and the irregularity of the shape of the cloud, the ring is likely incomplete and asymmetric. Estimating mass from the column density within a projected area is thus a lower bound, and serves as a good proxy for the total mass of the shell when the shell is optically thin and symmetric. To estimate the mass of the shell, we first overlay the temperature and density maps to determine an elliptical region with a finite width in the warm and dense part of the map. Notice that we completely exclude the cluster region to avoid confusion between the gas in the shell and within the cluster (Fig. 14, on the 2MASS extinction map). After this projected region of the shell is determined, we use the 2MASS extinction map and convert the extinction magnitude into the mass column density using Eq. 11. Summing up the mass column density within the shell mass region then gives us the shell mass, estimated to be 462 $M_{\sun}$. This is a lower bound, since the cluster region we exclude when choosing the shell mass region likely contains gas within the shell.
@@ -172,7 +195,7 @@ From these estimates, we obtain the momentum and the kinetic energy of the shell
 }
 \end{figure*}
 
-\begin{figure}[hb]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.35]{fig/bar_energy.png}
 \caption{Energy comparison between the shell and the clouds.
@@ -203,24 +226,6 @@ L_{turb} = \frac{E_{turb}}{t_{diss}}
 \end{equation}
 
 This gives $L_{turb}$ $\sim$ $10^{33}$ erg/s, which is on the same order of magnitude as the energy injection rate of the shell. These estimates indicate that the spherical wind from B-stars ($\rho$ Oph) has the potential for driving the turbulence in the Ophiuchus cloud. This result agrees with \citet{Arce_2011}.
-
-\begin{table*}
-\centering
-\begin{tabular}{lcc}
-\hline
-& \textbf{Shell in Ophiuchus} & \textbf{CPS5 in Perseus} \\   
-\hline
-Radius (IR) [pc] & 1.30 & 2.65 \\ 
-Mass [M$_{\odot}$] & 462 & 53 \\ 
-Expansion Velocity [km/s] & 1.2 & 3 \\ 
-Momentum [M$_{\odot}$ km/s]& 702 & 315 \\ 
-Kinetic Energy [erg]& 1.06$\times10^{46}$ & 1.88$\times10^{46}$ \\ 
-... of total turbulent energy & (12.0\%) & (11.8\%) \\ 
-Energy Injection Rate [erg/s] & 2.46$\times10^{33}$ & 1.49$\times10^{32}$ \\
-\hline
-\end{tabular}
-\caption{Comparison between the shell in Ophiuchus and the shell with the largest radius, CPS5, in Perseus (Arce et al 2011)}
-\end{table*}
 
 \subsection{Comparing to Perseus}
 Table 1 shows the physical properties of the shell discussed here and the largest shell (CPS 5) in the Perseus (\citet{Arce_2011}). We find that while the momenta of the two shells are comparable, the shell in the Ophiuchus cloud is more massive with a lower expansion velocity. This results in its smaller kinetic energy. However, since the total energy in the turbulence is smaller in the Ophiuchus cloud, the ratios of the shell energy to the turbulence energy in the cloud are comparable to each other. In the comparison of the energy injection rate and the turbulence dissipation rate, the shell in the Ophiuchus is powerful enough to drive the turbulence by itself, while in the Perseus, all shells with confidence scores larger than 4 (\citet{Arce_2011}) are required to get an energy injection rate at the same order of magnitude as the turbulence dissipation rate. We think that this hints at the fundamental difference between the two clouds and the shell(s) therein. The Ophiuchus cloud is slightly smaller than the Perseus cloud in terms of its mass and size, and the larger mass/smaller velocity of the shell in the Ophiuchus cloud probably indicates that the shell has been expanding for a longer period of time.
